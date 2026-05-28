@@ -1,0 +1,487 @@
+﻿<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Formación · Unidad de innovación</title>
+  <link rel="shortcut icon" href="src/images/icons/ico logo UTU.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="dist/styles.css">
+
+</head>
+
+<body class="bg-neutral-50 relative">
+
+
+  <!-- ===== HEADER ===== -->
+  <header class="cont_menu_navigation sticky top-0 z-[100] w-full h-[76px] md:h-52 bg-anep_cyan_three flex flex-col overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]">
+    <canvas class="hidden md:block md:absolute top-0 left-0 opacity-[0.15] w-full" id="particleCanvas"></canvas>
+
+    <div id="panelNav" class="w-full h-full md:h-[65%] z-10 relative">
+      <div class="max-w-[1350px] mx-auto h-full flex justify-between items-center px-4 md:px-8 2xl:px-6">
+        <div class="nav-logo-bar flex items-center h-full gap-4">
+          <a href="index.html" class="menuLink cursor-pointer z-10 shrink-0">
+            <img class="h-[25px] md:h-10 w-auto object-contain" src="src/images/logo/UITT.png" alt="Logo Unidad de innovación">
+          </a>
+          <div class="header-subtitle hidden md:flex flex-col justify-center pl-3 ml-2 border-l border-white/30 gap-y-0.5">
+            <span class="text-white/60 text-[9px] font-montserrat uppercase tracking-[0.18em] leading-none">Unidad de</span>
+            <span class="text-white text-[11px] font-bold font-montserrat uppercase tracking-wide leading-tight">Innovación y Transferencia Tecnológica</span>
+          </div>
+          <nav class="compact-nav hidden items-center gap-5 ml-4 font-montserrat text-[.78rem] uppercase text-white">
+            <a href="index.html" class="hover:opacity-75 font-medium transition-opacity">Inicio</a>
+            <a href="quienes-somos.html" class="hover:opacity-75 font-medium transition-opacity">Nosotros</a>
+            <a href="cobertura.html" class="hover:opacity-75 font-medium transition-opacity">Territorio</a>
+            <a href="procesoInnovacion.html" class="font-semibold underline underline-offset-4 transition-opacity">Formación</a>
+          </nav>
+        </div>
+
+        <button id="menuSwap" class="relative w-10 h-10 md:hidden grid place-items-center" aria-label="Alternar menú" aria-pressed="false">
+          <svg class="icon-a absolute inset-0 m-auto w-6 h-6 text-white transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z"></path></svg>
+          <svg class="icon-b absolute inset-0 m-auto w-6 h-6 text-white opacity-0 scale-95 transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 11h12v2H8zM12 18h8v-2h-8zM4 6h16v2H4z"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="panelPlus" class="w-full h-0 md:h-[35%] bg-[#08c]/90 flex z-10 relative">
+      <div class="max-w-[1350px] mx-auto w-full h-full flex items-center justify-between px-4 md:px-8 2xl:px-6">
+
+        <nav id="menu-panel" class="flex-col translate-x-[120%] md:translate-x-0 fixed top-[76px] h-[calc(100vh-76px)] bg-anep_cyan_two md:bg-transparent md:relative md:top-0 left-0 w-full z-50 text-white md:h-full md:w-auto flex transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]">
+          <ul class="h-full flex flex-col justify-center md:flex-row md:items-center text-white gap-y-6 md:gap-y-0 gap-x-6 font-montserrat text-[.78rem] uppercase pl-10 md:pl-0">
+            <li><a href="index.html" class="hover:opacity-75 transition-opacity font-medium">Inicio</a></li>
+            <li><a href="quienes-somos.html" class="hover:opacity-75 transition-opacity font-medium">Nosotros</a></li>
+            <li><a href="cobertura.html" class="hover:opacity-75 transition-opacity font-medium">Territorio</a></li>
+            <li><a href="procesoInnovacion.html" class="hover:opacity-75 transition-opacity font-semibold underline underline-offset-4">Formación</a></li>
+          </ul>
+        </nav>
+
+        <div class="hidden md:block ml-auto shrink-0">
+          <button id="faq-trigger-btn" class="faq-trigger" aria-label="Ayuda y consultas frecuentes">
+            <span class="faq-trigger__icon material-symbols-outlined" style="font-variation-settings:'FILL' 1">smart_toy</span>
+            Ayuda y consultas
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full">
+
+    <!-- ===== HERO BANNER ===== -->
+    <section class="page-hero">
+      <img 
+        src="src/images/banner/DSC_0003.jpg" 
+        alt="Innovación en UTU" 
+        class="page-hero__bg"
+      />
+      <div class="page-hero__overlay"></div>
+      
+      <div class="page-hero__content">
+        <div class="container mx-auto max-w-[1350px] px-4 md:px-8">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-white/60 mb-3">
+            Unidad de Innovación y Transferencia Tecnológica
+          </span>
+          <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight max-w-3xl mb-4">
+            Formación
+          </h1>
+          <p class="text-white/80 text-base md:text-lg max-w-2xl leading-relaxed">
+            Programas de formación continua y asesoría en propiedad intelectual para fortalecer
+            capacidades en innovación, tecnología y gestión de proyectos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <div class="container mx-auto max-w-[1350px] bg-white p-4 md:p-8 rounded-lg -mt-8 relative z-10">
+
+      <!-- Navegación interna -->
+      <nav class="page-nav">
+        <a href="#capacitacion" class="page-nav__link page-nav__link--active">Formación Continua</a>
+        <a href="#cati" class="page-nav__link">Propiedad Intelectual</a>
+      </nav>
+
+
+      <!-- ===== CAPACITACIÓN Y FORMACIÓN CONTINUA ===== -->
+      <section id="capacitacion" class="courses-section -mx-4 md:-mx-8 px-4 md:px-8 mb-16">
+
+        <div class="section-header reveal">
+          <span class="section-header__eyebrow">Motor de Cursos</span>
+          <h2 class="section-header__title">Formación Continua</h2>
+          <p class="section-header__desc">
+            Programas de actualización técnica y profesional orientados a fortalecer 
+            competencias en innovación, tecnología y gestión de proyectos.
+          </p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="courses-filters reveal reveal-delay-1">
+          <div class="courses-filters__search">
+            <span class="material-symbols-outlined courses-filters__icon">search</span>
+            <input type="text" placeholder="Buscar cursos..." class="courses-filters__input" />
+          </div>
+          <select class="courses-filters__select">
+            <option>Todas las categorías</option>
+            <option>Tecnología 4.0</option>
+            <option>Sustentabilidad</option>
+            <option>Gestión Industrial</option>
+            <option>Agrotech</option>
+          </select>
+          <select class="courses-filters__select">
+            <option>Cualquier duración</option>
+            <option>Hasta 20 horas</option>
+            <option>20-50 horas</option>
+            <option>Más de 50 horas</option>
+          </select>
+        </div>
+
+        <!-- Grid de cursos -->
+        <div class="courses-grid reveal reveal-delay-2">
+
+          <article class="course-card">
+            <div class="course-card__image course-card__image--tech">
+              <span class="material-symbols-outlined course-card__image-icon">precision_manufacturing</span>
+              <span class="course-card__tag">Tecnología</span>
+            </div>
+            <div class="course-card__body">
+              <h4 class="course-card__title">Programación de PLC Siemens</h4>
+              <p class="course-card__desc">Automatización lógica para procesos de manufactura avanzada.</p>
+              <div class="course-card__footer">
+                <span class="course-card__duration">60 horas</span>
+                <a href="#" class="course-card__cta">Inscribirse →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__image course-card__image--sustent">
+              <span class="material-symbols-outlined course-card__image-icon">energy_savings_leaf</span>
+              <span class="course-card__tag">Sustentabilidad</span>
+            </div>
+            <div class="course-card__body">
+              <h4 class="course-card__title">Sistemas Fotovoltaicos</h4>
+              <p class="course-card__desc">Dimensionamiento e instalación de paneles para autoconsumo.</p>
+              <div class="course-card__footer">
+                <span class="course-card__duration">45 horas</span>
+                <a href="#" class="course-card__cta">Inscribirse →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__image course-card__image--tech">
+              <span class="material-symbols-outlined course-card__image-icon">view_in_ar</span>
+              <span class="course-card__tag">Tecnología</span>
+            </div>
+            <div class="course-card__body">
+              <h4 class="course-card__title">Impresión 3D Gran Escala</h4>
+              <p class="course-card__desc">Uso de extrusores de alto flujo para prototipado rápido.</p>
+              <div class="course-card__footer">
+                <span class="course-card__duration">30 horas</span>
+                <a href="#" class="course-card__cta">Inscribirse →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__image course-card__image--agro">
+              <span class="material-symbols-outlined course-card__image-icon">agriculture</span>
+              <span class="course-card__tag">Agrotech</span>
+            </div>
+            <div class="course-card__body">
+              <h4 class="course-card__title">Drones aplicados al agro</h4>
+              <p class="course-card__desc">Análisis de cultivos mediante sensores multiespectrales.</p>
+              <div class="course-card__footer">
+                <span class="course-card__duration">20 horas</span>
+                <a href="#" class="course-card__cta">Inscribirse →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__image course-card__image--industria">
+              <span class="material-symbols-outlined course-card__image-icon">settings_input_component</span>
+              <span class="course-card__tag">Industria</span>
+            </div>
+            <div class="course-card__body">
+              <h4 class="course-card__title">Neumática e Hidráulica</h4>
+              <p class="course-card__desc">Mantenimiento de sistemas de potencia en entornos fabriles.</p>
+              <div class="course-card__footer">
+                <span class="course-card__duration">50 horas</span>
+                <a href="#" class="course-card__cta">Inscribirse →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__image course-card__image--tech">
+              <span class="material-symbols-outlined course-card__image-icon">terminal</span>
+              <span class="course-card__tag">Tecnología</span>
+            </div>
+            <div class="course-card__body">
+              <h4 class="course-card__title">Introducción a Python e IA</h4>
+              <p class="course-card__desc">Fundamentos de programación orientados a análisis de datos.</p>
+              <div class="course-card__footer">
+                <span class="course-card__duration">80 horas</span>
+                <a href="#" class="course-card__cta">Inscribirse →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__image course-card__image--sustent">
+              <span class="material-symbols-outlined course-card__image-icon">recycling</span>
+              <span class="course-card__tag">Sustentabilidad</span>
+            </div>
+            <div class="course-card__body">
+              <h4 class="course-card__title">Economía Circular</h4>
+              <p class="course-card__desc">Diseño de productos y procesos con enfoque de ciclo cerrado.</p>
+              <div class="course-card__footer">
+                <span class="course-card__duration">25 horas</span>
+                <a href="#" class="course-card__cta">Inscribirse →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Placeholder -->
+          <article class="course-card course-card--placeholder">
+            <span class="material-symbols-outlined text-5xl text-[var(--uitt-border)] mb-3">rocket_launch</span>
+            <h4 class="text-sm font-semibold text-[var(--uitt-text-muted)] mb-1">Próximamente</h4>
+            <p class="text-xs text-[var(--uitt-text-muted)]">Nuevos cursos en desarrollo para el segundo semestre</p>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===== CATI - PROPIEDAD INTELECTUAL ===== -->
+      <section id="cati" class="mb-16">
+
+        <div class="section-header reveal">
+          <span class="section-header__eyebrow">Asesoría Jurídica</span>
+          <h2 class="section-header__title">Propiedad Intelectual</h2>
+          <p class="section-header__desc">
+            Protegemos la innovación generada en nuestros nodos a través de un marco legal sólido. 
+            Descargue los formularios y guías oficiales para iniciar su trámite.
+          </p>
+        </div>
+
+        <div class="cati-grid reveal reveal-delay-1">
+          
+          <div class="cati-card">
+            <h3 class="cati-card__title">Patentes e Invenciones</h3>
+            <ul class="cati-card__list">
+              <li class="cati-card__item">
+                <a href="#" class="cati-card__link">
+                  <span class="material-symbols-outlined text-lg">description</span>
+                  Solicitud de Patente UTU
+                </a>
+                <span class="cati-card__format">PDF</span>
+              </li>
+              <li class="cati-card__item">
+                <a href="#" class="cati-card__link">
+                  <span class="material-symbols-outlined text-lg">description</span>
+                  Formulario de Novedad
+                </a>
+                <span class="cati-card__format">DOCX</span>
+              </li>
+              <li class="cati-card__item">
+                <a href="#" class="cati-card__link">
+                  <span class="material-symbols-outlined text-lg">description</span>
+                  Guía de Patentamiento
+                </a>
+                <span class="cati-card__format">PDF</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cati-card">
+            <h3 class="cati-card__title">Marcas y Diseño</h3>
+            <ul class="cati-card__list">
+              <li class="cati-card__item">
+                <a href="#" class="cati-card__link">
+                  <span class="material-symbols-outlined text-lg">description</span>
+                  Registro de Logo/Marca
+                </a>
+                <span class="cati-card__format">PDF</span>
+              </li>
+              <li class="cati-card__item">
+                <a href="#" class="cati-card__link">
+                  <span class="material-symbols-outlined text-lg">description</span>
+                  Guía Visual de Marcas
+                </a>
+                <span class="cati-card__format">PDF</span>
+              </li>
+              <li class="cati-card__item">
+                <a href="#" class="cati-card__link">
+                  <span class="material-symbols-outlined text-lg">description</span>
+                  Diseño Industrial
+                </a>
+                <span class="cati-card__format">PDF</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cati-card cati-card--cta">
+            <h3 class="cati-card__title">¿Necesita Asesoría?</h3>
+            <p class="text-sm text-white/80 mb-6 leading-relaxed">
+              Solicite una entrevista con la Unidad de Propiedad Intelectual para evaluar 
+              su proyecto y recibir orientación personalizada.
+            </p>
+            <button class="w-full py-3 bg-white text-[var(--uitt-primary)] font-bold text-sm rounded-lg hover:bg-opacity-90 transition-colors">
+              Agendar Cita
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- ===== FOOTER (mismo que index) ===== -->
+  <footer id="contacto" class="w-full container mx-auto mt-0 max-w-[1350px] bg-anep_black md:mt-12 p-10 2xl:rounded-lg mb-0 2xl:my-2 2xl:mx-auto 2xl:mt-12">
+    <div class="w-full grid grid-cols-1 gap-y-10 md:gap-y-0 md:grid-cols-2 gap-x-16">
+      <div class="flex flex-col gap-y-10 pr-[5%]">
+        <img class="max-w-96" src="src/images/logo/Logo ANEP-UTU blanco y plata vertical.png" alt="Logo UTU">
+        <p class="font-montserrat text-white text-xs leading-5">La Unidad de innovación articula el conocimiento técnico de UTU con las necesidades reales del sector productivo y la sociedad. A través de 24 nodos en los 19 departamentos del Uruguay, conectamos docentes, estudiantes y comunidades con empresas, organismos y desafíos del territorio.</p>
+        <ul class="gap-x-3 flex-row md:mt-0 flex brightness-50 md:brightness-100">
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22 22 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202z"></path></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M4.983 2.821a2.188 2.188 0 1 0 0 4.376 2.188 2.188 0 1 0 0-4.376M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66zm-6.142 0H6.87v12.139H3.095z"></path></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248m0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008M16.806 6.129a1.078 1.078 0 1 0 0 2.156 1.078 1.078 0 1 0 0-2.156"></path><path d="M20.533 6.111A4.6 4.6 0 0 0 17.9 3.479a6.6 6.6 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.6 6.6 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.6 6.6 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71s0 2.753.056 3.71c.015.748.156 1.486.419 2.187a4.6 4.6 0 0 0 2.634 2.632 6.6 6.6 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.6 6.6 0 0 0 2.186-.419 4.61 4.61 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.6 6.6 0 0 0-.421-2.217m-1.218 9.532a5 5 0 0 1-.311 1.688 2.99 2.99 0 0 1-1.712 1.711 5 5 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a5 5 0 0 1-1.669-.311 2.99 2.99 0 0 1-1.719-1.711 5.1 5.1 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654s0-2.686.053-3.655a5 5 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5 5 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a5 5 0 0 1 1.67.311 3 3 0 0 1 1.712 1.712 5.1 5.1 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655s0 2.698-.043 3.654z"></path></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M21.593 7.203a2.5 2.5 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.52 2.52 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831M9.996 15.005l.005-6 5.207 3.005z"></path></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M13.68 10.62 20.24 3h-1.55L13 9.62 8.45 3H3.19l6.88 10.01L3.19 21h1.55l6.01-6.99 4.8 6.99h5.24l-7.13-10.38Zm-2.13 2.47-.7-1-5.54-7.93H7.7l4.47 6.4.7 1 5.82 8.32H16.3z"></path></svg></li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-y-10 md:gap-y-0 gap-x-6 md:gap-x-16">
+        <div>
+          <h3 class="text-lg font-semibold uppercase tracking-widest mb-4 text-white font-montserrat">La Unidad de innovación</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><a href="quienes-somos.html" class="hover:text-[#f09819] transition-colors">Quiénes somos</a></li>
+            <li><a href="mapa.html" class="hover:text-[#f09819] transition-colors">Nodos de innovación</a></li>
+            <li><a href="procesoInnovacion.html" class="hover:text-[#f09819] transition-colors">Formación</a></li>
+            <li><a href="procesoInnovacion.html#capacitacion" class="hover:text-[#f09819] transition-colors">Capacitaciones</a></li>
+          </ul>
+          <h3 class="font-semibold uppercase tracking-widest mb-4 text-white font-montserrat mt-8 text-xs">Socios institucionales</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><a href="https://www.utu.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">UTU — Universidad del Trabajo</a></li>
+            <li><a href="https://www.anep.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">ANEP</a></li>
+            <li>CIU — Cámara de Industrias del Uruguay</li>
+            <li>INACOOP — Instituto Nacional del Cooperativismo</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold uppercase tracking-widest mb-4 text-white font-montserrat">Contacto</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><p><span class="font-bold">San Salvador 1674</span>, Montevideo, Uruguay</p></li>
+            <li><a href="https://www.utu.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">www.utu.edu.uy</a></li>
+          </ul>
+          <h3 class="font-semibold uppercase tracking-widest mb-4 text-white font-montserrat mt-8 text-xs">Informes</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><p>(+598) 2410 7971</p></li>
+            <li><a href="mailto:info@utu.edu.uy" class="hover:text-[#f8e71d] transition-colors">info@utu.edu.uy</a></li>
+          </ul>
+          <h3 class="font-semibold uppercase tracking-widest mb-4 text-white font-montserrat mt-8 text-xs">Información de cursos</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><a href="https://www.utu.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">Estudia en UTU</a></li>
+            <li><p>(+598) 0800 8155</p></li>
+            <li><p>(+598) 2410 7972</p></li>
+            <li><a href="mailto:cursos@utu.edu.uy" class="hover:text-[#f8e71d] transition-colors">cursos@utu.edu.uy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="w-full my-8 border-white/10">
+
+    <div class="w-full flex flex-col md:flex-row justify-between items-center text-xs text-white/80">
+      <p>© 2025 Universidad del Trabajo del Uruguay (UTU). Todos los derechos reservados.</p>
+      <div class="flex gap-4 mt-3 md:mt-0">
+        <a href="#" class="hover:text-[#f09819] transition-colors">Accesibilidad</a>
+        <a href="#" class="hover:text-[#f09819] transition-colors">Política de privacidad</a>
+        <a href="#" class="hover:text-[#f09819] transition-colors">Mapa del sitio</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="src/scripts/menuScroll.js"></script>
+  <script src="src/scripts/particlesMenu.js"></script>
+  <script src="src/scripts/particlesCifras.js" defer></script>
+  <script src="src/scripts/main.js" defer></script>
+  <script src="src/scripts/scrollEfect.js"></script>
+
+  <!-- ===== FAQ PANEL ===== -->
+  <div id="faq-backdrop" aria-hidden="true"></div>
+  <div id="faq-panel" role="dialog" aria-modal="true" aria-labelledby="faq-panel-title">
+    <div class="faq-panel__header">
+      <span class="faq-panel__title">
+        <span class="faq-panel__title-icon material-symbols-outlined" style="font-variation-settings:'FILL' 1">smart_toy</span>
+        <span id="faq-panel-title">Consultas frecuentes</span>
+      </span>
+      <button id="faq-panel-close" class="faq-panel__close" aria-label="Cerrar panel">✕</button>
+    </div>
+    <div class="faq-panel__body">
+      <p class="faq-panel__intro">Seleccioná una pregunta para ver la respuesta. Si tenés dudas adicionales podés escribirnos directo.</p>
+      <div id="faq-list"></div>
+    </div>
+  </div>
+  <script>
+    (function() {
+      var faqs = [
+        { q: '¿Qué es un Nodo de Innovación?', a: 'Un Nodo de Innovación es un espacio físico dentro de un centro UTU que actúa como intermediario territorial entre las necesidades del sector productivo y la capacidad técnica de UTU. Cuenta con sala colaborativa en red y auditorio de 130 butacas. Hay 24 nodos distribuidos en los 19 departamentos de Uruguay, con cuatro tipologías: Tecnológica, Educativa, Social y Empresarial.' },
+        { q: '¿Qué es el CATI?', a: 'El CATI (Centro de Apoyo a la Tecnología y la Innovación) es un servicio de la OMPI (Organización Mundial de la Propiedad Intelectual) que funciona dentro de la UITT. Brinda orientación sobre propiedad intelectual, patentes y protección de innovaciones. Es una etapa clave del proceso de innovación donde los proyectos son categorizados y jerarquizados antes de ser orientados hacia su desarrollo.' },
+        { q: '¿Qué es un Parque Científico-Tecnológico?', a: 'Los Parques Científico-Tecnológicos son ecosistemas de innovación que nuclean empresas, centros de investigación e instituciones educativas en un espacio común. La UITT articula con estos parques para facilitar la transferencia tecnológica y la vinculación entre los proyectos generados en UTU y el sector productivo.' },
+        { q: '¿Dónde puedo ver el banco de problemas?', a: 'El banco de problemas es una herramienta geolocalizadora gestionada por los Nodos de Innovación. Reúne necesidades reales del sector productivo, industrial y de la sociedad civil. Para acceder o consultar problemas disponibles en tu región, podés contactar al nodo UTU más cercano o escribirnos.' },
+        { q: '¿Cómo puedo postular un problema que quiero abordar?', a: 'El proceso comienza con la identificación del problema en el nodo territorial. Luego se categoriza y jerarquiza (con apoyo del CATI si hay propiedad intelectual involucrada), se orienta el proyecto, se realiza validación y prototipado, y se formula el proyecto. Si tiene potencial empresarial, se conecta con el CIU y con INACOOP o MIDES para incubación.' },
+        { q: 'Soy una empresa, ¿cómo me contacto?', a: 'Las empresas pueden acercarse a través del nodo UTU más cercano a su ubicación o contactar directamente a la UITT. El proceso involucra la presentación de la necesidad o problema, que luego se articula con proyectos de estudiantes y docentes UTU. También podés vincularte a través de la Cámara de Industrias del Uruguay (CIU), socia institucional del proceso.' },
+        { q: '¿Cómo puedo ver los cursos y capacitaciones disponibles?', a: 'La oferta de formación continua y capacitaciones de la UITT está disponible en la sección Formación del sitio. Incluye cursos técnicos, formación continua para docentes y capacitaciones para el sector productivo. Para más información sobre fechas e inscripciones podés escribirnos directamente.' }
+      ];
+      var list = document.getElementById('faq-list');
+      var panel = document.getElementById('faq-panel');
+      var backdrop = document.getElementById('faq-backdrop');
+      var openBtn = document.getElementById('faq-trigger-btn');
+      var closeBtn = document.getElementById('faq-panel-close');
+      faqs.forEach(function(item, i) {
+        var id = 'faq-' + i;
+        var btn = document.createElement('button');
+        btn.className = 'faq-question-btn';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-controls', id);
+        btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:0.9rem;color:#1997f0;flex-shrink:0">help_outline</span><span>' + item.q + '</span><span class="faq-question-btn__arrow material-symbols-outlined">expand_more</span>';
+        var answer = document.createElement('div');
+        answer.className = 'faq-answer';
+        answer.id = id;
+        var subject = encodeURIComponent('Consulta UITT: ' + item.q);
+        answer.innerHTML = '<p class="faq-answer-text">' + item.a + '</p><a href="mailto:info@utu.edu.uy?subject=' + subject + '" class="faq-mailto-btn"><span class="material-symbols-outlined" style="font-size:0.85rem">mail</span>¿Tenés más dudas? Escribinos</a>';
+        btn.addEventListener('click', function() {
+          var isOpen = answer.classList.contains('faq-visible');
+          document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.remove('faq-visible'); });
+          document.querySelectorAll('.faq-question-btn').forEach(function(b) { b.classList.remove('faq-active'); b.setAttribute('aria-expanded', 'false'); });
+          if (!isOpen) { answer.classList.add('faq-visible'); btn.classList.add('faq-active'); btn.setAttribute('aria-expanded', 'true'); }
+        });
+        list.appendChild(btn);
+        list.appendChild(answer);
+      });
+      function openPanel() { panel.classList.add('faq-open'); backdrop.classList.add('faq-open'); document.body.style.overflow = 'hidden'; }
+      function closePanel() { panel.classList.remove('faq-open'); backdrop.classList.remove('faq-open'); document.body.style.overflow = ''; }
+      openBtn.addEventListener('click', openPanel);
+      closeBtn.addEventListener('click', closePanel);
+      backdrop.addEventListener('click', closePanel);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePanel(); });
+    })();
+  </script>
+
+</body>
+
+</html>

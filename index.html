@@ -1,0 +1,1141 @@
+﻿<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Unidad de Innovación y Transferencia Tecnológica</title>
+  <link rel="shortcut icon" href="src/images/icons/ico logo UTU.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="dist/styles.css">
+</head>
+
+<body class="bg-neutral-50 relative">
+
+  <!-- ===== HEADER ===== -->
+  <header class="cont_menu_navigation sticky top-0 z-[100] w-full h-[76px] md:h-52 bg-anep_cyan_three flex flex-col overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]">
+    <canvas class="hidden md:block md:absolute top-0 left-0 opacity-[0.15] w-full" id="particleCanvas"></canvas>
+
+    <!-- Fila superior: logo + (compact: nav lateral) + hamburger -->
+    <div id="panelNav" class="w-full h-full md:h-[65%] z-10 relative">
+      <div class="max-w-[1350px] mx-auto h-full flex justify-between items-center px-4 md:px-8 2xl:px-6">
+        <div class="nav-logo-bar flex items-center h-full gap-4">
+          <a href="index.html" class="menuLink cursor-pointer z-10 shrink-0">
+            <img class="h-[25px] md:h-10 w-auto object-contain" src="src/images/logo/UITT.png" alt="Logo Unidad de innovación">
+          </a>
+          <!-- Nav compacta: visible solo al hacer scroll en desktop -->
+          <nav class="compact-nav hidden items-center gap-5 ml-6 font-montserrat text-[.78rem] uppercase text-white">
+            <a href="index.html" class="font-semibold underline underline-offset-4 transition-opacity">Inicio</a>
+            <a href="quienes-somos.html" class="hover:opacity-75 font-medium transition-opacity">Nosotros</a>
+            <a href="cobertura.html" class="hover:opacity-75 font-medium transition-opacity">Territorio</a>
+            <a href="procesoInnovacion.html" class="hover:opacity-75 font-medium transition-opacity">Formación</a>
+          </nav>
+        </div>
+
+        <button id="menuSwap" class="relative w-10 h-10 md:hidden grid place-items-center" aria-label="Alternar menú" aria-pressed="false">
+          <svg class="icon-a absolute inset-0 m-auto w-6 h-6 text-white transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z"></path></svg>
+          <svg class="icon-b absolute inset-0 m-auto w-6 h-6 text-white opacity-0 scale-95 transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 11h12v2H8zM12 18h8v-2h-8zM4 6h16v2H4z"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Fila inferior: nav consolidado + typewriter -->
+    <div id="panelPlus" class="w-full h-0 md:h-[35%] bg-[#08c]/90 flex z-10 relative">
+      <div class="max-w-[1350px] mx-auto w-full h-full flex items-center justify-between px-4 md:px-8 2xl:px-6">
+
+        <nav id="menu-panel" class="flex-col translate-x-[120%] md:translate-x-0 fixed top-[76px] h-[calc(100vh-76px)] bg-anep_cyan_two md:bg-transparent md:relative md:top-0 left-0 w-full z-50 text-white md:h-full md:w-auto flex transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]">
+          <ul class="h-full flex flex-col justify-center md:flex-row md:items-center text-white gap-y-6 md:gap-y-0 gap-x-6 font-montserrat text-[.78rem] uppercase pl-10 md:pl-0">
+            <li><a href="index.html" class="hover:opacity-75 transition-opacity font-medium">Inicio</a></li>
+            <li><a href="quienes-somos.html" class="hover:opacity-75 transition-opacity font-medium">Nosotros</a></li>
+            <li><a href="cobertura.html" class="hover:opacity-75 transition-opacity font-medium">Territorio</a></li>
+            <li><a href="procesoInnovacion.html" class="hover:opacity-75 transition-opacity font-medium">Formación</a></li>
+          </ul>
+        </nav>
+
+        <div class="hidden md:block ml-auto shrink-0">
+          <button id="faq-header-trigger" class="faq-trigger" aria-label="Ayuda y consultas frecuentes">
+            <span class="faq-trigger__icon material-symbols-outlined" style="font-variation-settings:'FILL' 1">smart_toy</span>
+            Ayuda y consultas
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- seccion principal -->
+    <div class="w-full container mx-auto max-w-[1350px] bg-white p-2 md:p-5 2xl:mt-5 2xl:p-3 rounded-lg 2xl:mb-4">
+
+      <!-- ================ HERO SIMPLIFICADO ================ -->
+      <section class="overflow-hidden rounded-lg">
+        <div class="relative bg-[#0d4a7a] px-8 py-16 md:px-14 md:py-24 overflow-hidden min-h-[400px]">
+
+          <!-- Imagen de fondo -->
+          <img src="src/images/banner/DSC07671.JPG" alt="" class="absolute inset-0 w-full h-full object-cover opacity-35" aria-hidden="true">
+          <!-- Overlay gradiente -->
+          <div class="absolute inset-0 bg-gradient-to-r from-[#0d4a7a]/90 via-[#0d4a7a]/70 to-[#1565a8]/30 pointer-events-none"></div>
+          <!-- Patrón de puntos sutil -->
+          <div class="absolute inset-0 pointer-events-none opacity-20"
+              style="background-image: radial-gradient(circle, rgba(25,151,240,0.4) 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+          <div class="relative z-10 max-w-3xl">
+
+            <!-- Línea decorativa -->
+            <div class="hero-accent-line mb-5 rounded-full"></div>
+
+            <h1 class="text-3xl md:text-5xl font-black leading-tight text-white">
+              Unidad de
+              <span class="text-[rgb(25_151_240)]"> Innovación</span>
+            </h1>
+
+            <p class="mt-6 text-slate-300 text-lg leading-relaxed max-w-2xl">
+              La UTU no solo forma profesionales: construye futuro. La Unidad de Innovación
+              surge de la necesidad de articular el conocimiento académico con las demandas
+              reales del sector productivo y de la sociedad.
+            </p>
+
+            <!-- Badges -->
+            <div class="mt-8 flex flex-wrap gap-3">
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-white/90 border border-white/20 bg-white/10 px-3 py-1.5 rounded-full">
+                <span class="material-symbols-outlined text-sm" style="font-size:14px">hub</span> 24 Nodos activos
+              </span>
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-white/90 border border-white/20 bg-white/10 px-3 py-1.5 rounded-full">
+                <span class="material-symbols-outlined text-sm" style="font-size:14px">verified</span> Rumbo a ISO 56001
+              </span>
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-white/90 border border-white/20 bg-white/10 px-3 py-1.5 rounded-full">
+                <span class="material-symbols-outlined text-sm" style="font-size:14px">public</span> Cobertura nacional
+              </span>
+            </div>
+
+            <!-- DOS CTAs -->
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a href="https://nodosinnovacion.utu.edu.uy/" class="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-white bg-[rgb(25_151_240)] hover:bg-[rgb(20_130_210)] transition-all duration-200 rounded-lg">
+                <span class="material-symbols-outlined text-sm" style="font-size:18px">hub</span> Explorar Nodos
+              </a>
+              <a href="#servycap" class="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-white border-2 border-white/40 hover:bg-white/10 transition-all duration-200 rounded-lg">
+                <span class="material-symbols-outlined text-sm" style="font-size:18px">arrow_downward</span> Cómo trabajamos
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================ ¿QUÉ HACEMOS? ================ -->
+      <section id="servycap" class="py-16 px-4 md:px-8 bg-white overflow-hidden">
+
+        <div class="max-w-5xl">
+
+          <!-- Header alineado a la izquierda -->
+          <div class="section-header reveal">
+            <span class="section-header__eyebrow">¿Qué hacemos?</span>
+            <h2 class="section-header__title">
+              Articulamos conocimiento e <span class="text-[rgb(25,151,240)]">innovación</span>
+              para el <span class="text-[rgb(25,151,240)]">Uruguay</span>
+            </h2>
+            <p class="section-header__desc">
+              Somos el puente entre lo que UTU sabe hacer y lo que el país necesita resolver.
+              Con 24 nodos en los 19 departamentos, conectamos docentes, estudiantes y comunidades
+              con empresas, organismos y desafíos reales del territorio.
+            </p>
+          </div>
+
+          <!-- Tres actores como círculos con diseño -->
+          <div class="actors-diagram reveal">
+
+            <div class="actor-circle actor-circle--utu">
+              <div class="actor-circle__ring">
+                <span class="actor-circle__word">UTU</span>
+              </div>
+            </div>
+
+            <!-- Flujo UTU ? Nodos -->
+            <div class="actor-flow" aria-hidden="true">
+              <div class="flow-lane flow-lane--fwd">
+                <span class="flow-item fi--blue" style="--d:0s"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">lightbulb</span></span>
+                <span class="flow-item fi--blue" style="--d:1.4s"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">description</span></span>
+                <span class="flow-item fi--blue" style="--d:2.8s"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">code</span></span>
+              </div>
+              <div class="flow-lane flow-lane--bwd">
+                <span class="flow-item fi--cyan" style="--d:0.7s"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">person</span></span>
+                <span class="flow-item fi--cyan" style="--d:2.1s"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">bar_chart</span></span>
+              </div>
+            </div>
+
+            <div class="actor-circle actor-circle--nodos">
+              <div class="actor-circle__ring">
+                <span class="actor-circle__word">Nodos</span>
+              </div>
+            </div>
+
+            <!-- Flujo Nodos ? País -->
+            <div class="actor-flow" aria-hidden="true">
+              <div class="flow-lane flow-lane--fwd">
+                <span class="flow-item fi--primary" style="--d:0.4s"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">handshake</span></span>
+                <span class="flow-item fi--primary" style="--d:1.8s"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">science</span></span>
+                <span class="flow-item fi--primary" style="--d:3.2s"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">engineering</span></span>
+              </div>
+              <div class="flow-lane flow-lane--bwd">
+                <span class="flow-item fi--green" style="--d:0s"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">groups</span></span>
+                <span class="flow-item fi--green" style="--d:1.4s"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">business</span></span>
+              </div>
+            </div>
+
+            <div class="actor-circle actor-circle--pais">
+              <div class="actor-circle__ring">
+                <span class="actor-circle__word">País</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Contenido Nodos — siempre visible -->
+          <div class="nodos-panel reveal">
+            <div class="nodos-panel__body">
+              <h3 class="nodos-panel__title">
+                Un espacio donde los problemas del territorio encuentran respuesta
+              </h3>
+              <p class="nodos-panel__text">
+                Los Nodos son el lugar donde profesionales de una empresa
+                pueden llegar con un problema concreto y encontrar que un grupo de estudiantes de UTU ya está
+                trabajando en una solución parecida. Ese encuentro es lo que los hace únicos.
+              </p>
+              <p class="nodos-panel__text">
+                Cada nodo tiene una <strong>sala colaborativa</strong> conectada en red al banco de problemas
+                del territorio, y un <strong>auditorio de 130 butacas</strong> abierto a estudiantes,
+                empresas, cooperativas y organismos públicos.
+              </p>
+            </div>
+            <div class="nodos-panel__stats">
+              <div class="nodos-panel__stat">
+                <span class="nodos-panel__stat-num">24</span>
+                <span class="nodos-panel__stat-label">nodos activos</span>
+              </div>
+              <div class="nodos-panel__stat">
+                <span class="nodos-panel__stat-num">130</span>
+                <span class="nodos-panel__stat-label">butacas por auditorio</span>
+              </div>
+              <div class="nodos-panel__stat">
+                <span class="nodos-panel__stat-num">19</span>
+                <span class="nodos-panel__stat-label">departamentos</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Placeholder para continuar — paneles eliminados -->
+          <div class="hidden">
+
+            <!-- Paneles de actor -->
+            <div class="uitt-actor-panels mt-5">
+
+              <!-- Panel UTU -->
+              <div id="panel-utu" class="uitt-actor-panel" hidden>
+                <div class="uitt-panel-inner">
+                  <div class="uitt-panel-text">
+                    <div class="uitt-panel-eyebrow">
+                      <span class="material-symbols-outlined">school</span>
+                      UTU — El músculo académico
+                    </div>
+                    <h3 class="uitt-panel-title">Genera proyectos, soluciones e investigaciones</h3>
+                    <p class="uitt-panel-desc">
+                      UTU transforma desafíos reales en proyectos concretos. Docentes y estudiantes
+                      trabajan en problemas del mundo productivo, industrial y social, simulando
+                      condiciones reales del mercado.
+                    </p>
+                    <p class="uitt-panel-desc">
+                      La formación técnica deja de ser solo teórica y se convierte en motor de cambio:
+                      cada proyecto de fin de curso es una respuesta concreta a una necesidad del Uruguay.
+                    </p>
+                  </div>
+                  <div class="uitt-panel-stats">
+                    <div class="uitt-panel-stat">
+                      <span class="uitt-panel-stat__num">5.000+</span>
+                      <span class="uitt-panel-stat__label">proyectos anuales de fin de curso o carrera</span>
+                    </div>
+                    <div class="uitt-panel-stat">
+                      <span class="uitt-panel-stat__num">100+</span>
+                      <span class="uitt-panel-stat__label">centros técnicos en todo el territorio</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel NODOS (activo por defecto) -->
+              <div id="panel-nodos" class="uitt-actor-panel">
+                <div class="uitt-panel-inner">
+                  <div class="uitt-panel-text">
+                    <div class="uitt-panel-eyebrow">
+                      <span class="material-symbols-outlined">hub</span>
+                      Nodos — El intermediario territorial
+                    </div>
+                    <h3 class="uitt-panel-title">Más que un espacio físico</h3>
+                    <p class="uitt-panel-desc">
+                      Los Nodos son instrumentos de transformación territorial. No son solo una sala
+                      con buena decoración: tienen un estándar que busca generar pensamiento creativo
+                      y aprendizaje basado en la resolución de problemas reales de cada región.
+                    </p>
+                    <p class="uitt-panel-desc">
+                      Cada nodo tiene una <strong>sala colaborativa</strong> con computadoras en red
+                      para acceder al banco de problemas del territorio, y un
+                      <strong>auditorio de 130 butacas</strong> abierto a toda la comunidad:
+                      estudiantes, empresas, organizaciones y gobierno.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                      <span class="inline-flex items-center text-xs font-bold px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">Tecnológica</span>
+                      <span class="inline-flex items-center text-xs font-bold px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200">Educativa</span>
+                      <span class="inline-flex items-center text-xs font-bold px-3 py-1 rounded-full bg-green-50 text-green-700 border border-green-200">Social</span>
+                      <span class="inline-flex items-center text-xs font-bold px-3 py-1 rounded-full bg-orange-50 text-orange-700 border border-orange-200">Empresarial</span>
+                    </div>
+                  </div>
+                  <div class="uitt-panel-stats">
+                    <div class="uitt-panel-stat">
+                      <span class="uitt-panel-stat__num">24</span>
+                      <span class="uitt-panel-stat__label">nodos activos en todo Uruguay</span>
+                    </div>
+                    <div class="uitt-panel-stat">
+                      <span class="uitt-panel-stat__num">130</span>
+                      <span class="uitt-panel-stat__label">butacas por auditorio para la comunidad</span>
+                    </div>
+                    <div class="uitt-panel-stat">
+                      <span class="uitt-panel-stat__num">19</span>
+                      <span class="uitt-panel-stat__label">departamentos con presencia</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel PAÍS -->
+              <div id="panel-pais" class="uitt-actor-panel" hidden>
+                <div class="uitt-panel-inner">
+                  <div class="uitt-panel-text">
+                    <div class="uitt-panel-eyebrow">
+                      <span class="material-symbols-outlined">public</span>
+                      País — Las necesidades reales
+                    </div>
+                    <h3 class="uitt-panel-title">El sector productivo, industrial y la sociedad</h3>
+                    <p class="uitt-panel-desc">
+                      El Uruguay productivo, industrial y social genera constantemente desafíos que
+                      requieren soluciones innovadoras: desde procesos industriales hasta problemáticas
+                      comunitarias, desde emprendimientos hasta el desarrollo tecnológico soberano.
+                    </p>
+                    <p class="uitt-panel-desc">
+                      A través del banco de problemas, cualquier actor puede presentar sus necesidades.
+                      Los Nodos las reciben, clasifican y conectan con UTU para dar respuesta concreta.
+                    </p>
+                  </div>
+                  <div class="uitt-panel-stats uitt-panel-stats--icons">
+                    <div class="uitt-panel-stat uitt-panel-stat--icon">
+                      <span class="material-symbols-outlined text-[rgb(25_151_240)] text-3xl">factory</span>
+                      <span class="uitt-panel-stat__label">Industria y producción</span>
+                    </div>
+                    <div class="uitt-panel-stat uitt-panel-stat--icon">
+                      <span class="material-symbols-outlined text-[rgb(25_151_240)] text-3xl">diversity_3</span>
+                      <span class="uitt-panel-stat__label">Sociedad civil</span>
+                    </div>
+                    <div class="uitt-panel-stat uitt-panel-stat--icon">
+                      <span class="material-symbols-outlined text-[rgb(25_151_240)] text-3xl">storefront</span>
+                      <span class="uitt-panel-stat__label">Emprendimientos</span>
+                    </div>
+                    <div class="uitt-panel-stat uitt-panel-stat--icon">
+                      <span class="material-symbols-outlined text-[rgb(25_151_240)] text-3xl">account_balance</span>
+                      <span class="uitt-panel-stat__label">Estado e instituciones</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Timeline de 7 pasos -->
+          <div class="mt-16 reveal">
+            <div class="mb-8">
+              <span class="section-header__eyebrow">El proceso</span>
+              <h3 class="text-2xl font-black text-slate-900 mt-3">De la idea a la solución</h3>
+              <p class="text-slate-500 text-sm mt-2 max-w-xl leading-relaxed">
+                Hacé clic en cada paso para ver cómo funciona.
+              </p>
+            </div>
+
+            <div class="innovation-timeline" id="processTimeline">
+
+              <div class="timeline-track-wrap">
+                <div class="timeline-line-bg"></div>
+                <div class="timeline-steps-row">
+
+                  <button class="tl-step is-active" data-step="1">
+                    <div class="tl-step__dot">1</div>
+                    <span class="tl-step__label">Identificación</span>
+                  </button>
+
+                  <button class="tl-step" data-step="2">
+                    <div class="tl-step__dot">2</div>
+                    <span class="tl-step__label">Categorización</span>
+                  </button>
+
+                  <button class="tl-step" data-step="3">
+                    <div class="tl-step__dot">3</div>
+                    <span class="tl-step__label">Orientación</span>
+                  </button>
+
+                  <button class="tl-step" data-step="4">
+                    <div class="tl-step__dot">4</div>
+                    <span class="tl-step__label">Prototipado</span>
+                  </button>
+
+                  <button class="tl-step" data-step="5">
+                    <div class="tl-step__dot">5</div>
+                    <span class="tl-step__label">Formulación</span>
+                  </button>
+
+                  <button class="tl-step" data-step="6">
+                    <div class="tl-step__dot">6</div>
+                    <span class="tl-step__label">Capital semilla</span>
+                  </button>
+
+                  <button class="tl-step" data-step="7">
+                    <div class="tl-step__dot">7</div>
+                    <span class="tl-step__label">Incubación</span>
+                  </button>
+
+                </div>
+              </div>
+
+              <div class="tl-panels">
+
+                <div class="tl-panel is-open" id="tl-panel-1">
+                  <div class="tl-panel__inner">
+                    <div class="tl-panel__num">01</div>
+                    <div class="tl-panel__body">
+                      <h4 class="tl-panel__title">Identificación del problema</h4>
+                      <p class="tl-panel__desc">
+                        Todo empieza cuando alguien en el territorio detecta un problema que no sabe cómo resolver.
+                        Puede ser una empresa, un organismo público, una cooperativa o cualquier persona de la comunidad.
+                        El banco de problemas del nodo registra y geolocaliza cada desafío para conectarlo con quienes
+                        pueden abordarlo desde UTU.
+                      </p>
+                      <div class="tl-panel__features">
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Banco de problemas geolocalizados</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>24 nodos · 19 departamentos</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Sala colaborativa en red</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Vinculación con sector productivo</span>
+                      </div>
+                      <div class="tl-panel__actions">
+                        <button type="button" class="tl-btn tl-btn--primary">
+                          <span class="material-symbols-outlined">database</span>
+                          Consultar banco de problemas
+                        </button>
+                        <button type="button" class="tl-btn tl-btn--ghost">
+                          <span class="material-symbols-outlined">task_alt</span>
+                          Evaluar viabilidad del problema
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tl-panel" id="tl-panel-2">
+                  <div class="tl-panel__inner">
+                    <div class="tl-panel__num">02</div>
+                    <div class="tl-panel__body">
+                      <h4 class="tl-panel__title">Categorización y jerarquización</h4>
+                      <p class="tl-panel__desc">
+                        No todos los problemas son iguales ni requieren el mismo nivel de urgencia. En esta etapa
+                        se analiza el impacto de cada desafío, se buscan antecedentes tecnológicos a nivel mundial
+                        y se revisa la propiedad intelectual existente antes de invertir tiempo y recursos.
+                      </p>
+                      <div class="tl-panel__features">
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Búsqueda de antecedentes tecnológicos</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Asesoría en patentes y marcas</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Análisis de propiedad intelectual</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Jerarquización por impacto</span>
+                      </div>
+                      <div class="tl-panel__partner">
+                        <span class="material-symbols-outlined">balance</span>
+                        CATI — Centro de Apoyo a la Tecnología e Innovación (OMPI)
+                      </div>
+                      <div class="tl-panel__actions">
+                        <button type="button" class="tl-btn tl-btn--primary">
+                          <span class="material-symbols-outlined">balance</span>
+                          Buscar centro CATI
+                        </button>
+                        <button type="button" class="tl-btn tl-btn--ghost">
+                          <span class="material-symbols-outlined">manage_search</span>
+                          Consultar antecedentes tecnológicos
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tl-panel" id="tl-panel-3">
+                  <div class="tl-panel__inner">
+                    <div class="tl-panel__num">03</div>
+                    <div class="tl-panel__body">
+                      <h4 class="tl-panel__title">Orientación de proyectos</h4>
+                      <p class="tl-panel__desc">
+                        Se define el enfoque y se asignan los recursos académicos de UTU al desafío: docentes,
+                        estudiantes y laboratorios especializados trabajan juntos como si fuera un proyecto real.
+                        Porque de eso se trata exactamente.
+                      </p>
+                      <div class="tl-panel__features">
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>5.000+ proyectos anuales de fin de curso</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>100+ centros técnicos en el territorio</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Docentes y estudiantes especializados</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Laboratorios de múltiples áreas técnicas</span>
+                      </div>
+                      <div class="tl-panel__actions">
+                        <button type="button" class="tl-btn tl-btn--primary">
+                          <span class="material-symbols-outlined">school</span>
+                          Ver oferta académica UTU
+                        </button>
+                        <button type="button" class="tl-btn tl-btn--ghost">
+                          <span class="material-symbols-outlined">add_task</span>
+                          Proponer un proyecto
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tl-panel" id="tl-panel-4">
+                  <div class="tl-panel__inner">
+                    <div class="tl-panel__num">04</div>
+                    <div class="tl-panel__body">
+                      <h4 class="tl-panel__title">Validación y prototipado</h4>
+                      <p class="tl-panel__desc">
+                        Se construyen soluciones concretas y se prueban rápido. El error forma parte del proceso:
+                        cada iteración mejora el resultado. Al final, la solución se valida directamente con quien
+                        presentó el problema para asegurar que realmente resuelve lo que se necesitaba.
+                      </p>
+                      <div class="tl-panel__features">
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Espacios de co-creación y prototipado</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Laboratorios compartidos</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Parques tecnológicos integrados</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Validación directa con el demandante</span>
+                      </div>
+                      <div class="tl-panel__actions">
+                        <button type="button" class="tl-btn tl-btn--primary">
+                          <span class="material-symbols-outlined">science</span>
+                          Ver laboratorios disponibles
+                        </button>
+                        <button type="button" class="tl-btn tl-btn--ghost">
+                          <span class="material-symbols-outlined">domain</span>
+                          Explorar parques tecnológicos
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tl-panel" id="tl-panel-5">
+                  <div class="tl-panel__inner">
+                    <div class="tl-panel__num">05</div>
+                    <div class="tl-panel__body">
+                      <h4 class="tl-panel__title">Formulación del proyecto</h4>
+                      <p class="tl-panel__desc">
+                        Cuando la solución funciona, se le da forma: objetivos claros, metodología, plazos y
+                        presupuesto. Esta base es la que permite escalarlo y buscar el financiamiento necesario
+                        para que llegue a donde tiene que llegar.
+                      </p>
+                      <div class="tl-panel__features">
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Procesos documentados (ISO 56001)</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Indicadores de gestión</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Metodología estandarizada</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Auditorías y mejora continua</span>
+                      </div>
+                      <div class="tl-panel__actions">
+                        <button type="button" class="tl-btn tl-btn--primary">
+                          <span class="material-symbols-outlined">download</span>
+                          Descargar plantilla de formulación
+                        </button>
+                        <button type="button" class="tl-btn tl-btn--ghost">
+                          <span class="material-symbols-outlined">verified</span>
+                          Consultar metodología ISO 56001
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tl-panel" id="tl-panel-6">
+                  <div class="tl-panel__inner">
+                    <div class="tl-panel__num">06</div>
+                    <div class="tl-panel__body">
+                      <h4 class="tl-panel__title">Capital semilla e innovación empresarial</h4>
+                      <p class="tl-panel__desc">
+                        El proyecto se conecta con apoyo financiero y se proyecta su impacto en el mercado productivo.
+                        Acá es donde una idea que surgió en un aula de UTU puede transformarse en un emprendimiento
+                        real con impacto en el Uruguay.
+                      </p>
+                      <div class="tl-panel__features">
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Vinculación con el sector industrial</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Capital semilla para proyectos</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Innovación de base empresarial</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Networking con empresas residentes</span>
+                      </div>
+                      <div class="tl-panel__partner">
+                        <span class="material-symbols-outlined">business</span>
+                        CIU — Cámara de Industrias del Uruguay
+                      </div>
+                      <div class="tl-panel__actions">
+                        <button type="button" class="tl-btn tl-btn--primary">
+                          <span class="material-symbols-outlined">factory</span>
+                          Conocer oportunidades CIU
+                        </button>
+                        <button type="button" class="tl-btn tl-btn--ghost">
+                          <span class="material-symbols-outlined">payments</span>
+                          Buscar financiamiento disponible
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tl-panel" id="tl-panel-7">
+                  <div class="tl-panel__inner">
+                    <div class="tl-panel__num">07</div>
+                    <div class="tl-panel__body">
+                      <h4 class="tl-panel__title">Incubación y constitución</h4>
+                      <p class="tl-panel__desc">
+                        El proyecto se convierte en empresa, cooperativa o iniciativa formal con acompañamiento
+                        institucional. Se fomenta el emprendimiento social y el asociativismo porque el Uruguay
+                        que queremos construir lo construimos entre todos.
+                      </p>
+                      <div class="tl-panel__features">
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Incubación de emprendimientos formales</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Metodologías participativas</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Impacto territorial y comunitario</span>
+                        <span class="tl-panel__feature"><span class="material-symbols-outlined">check_circle</span>Alianzas con sociedad civil</span>
+                      </div>
+                      <div class="flex flex-wrap gap-2 mt-3">
+                        <div class="tl-panel__partner">
+                          <span class="material-symbols-outlined">handshake</span>
+                          INACOOP — Instituto Nacional del Cooperativismo
+                        </div>
+                        <div class="tl-panel__partner">
+                          <span class="material-symbols-outlined">volunteer_activism</span>
+                          MIDES — Fomento del emprendimiento social
+                        </div>
+                      </div>
+                      <div class="tl-panel__actions">
+                        <button type="button" class="tl-btn tl-btn--primary">
+                          <span class="material-symbols-outlined">handshake</span>
+                          Contactar INACOOP
+                        </button>
+                        <button type="button" class="tl-btn tl-btn--ghost">
+                          <span class="material-symbols-outlined">volunteer_activism</span>
+                          Consultar MIDES
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <script>
+      (function ()
+      {
+        var steps = document.querySelectorAll('.tl-step');
+        var panels = document.querySelectorAll('.tl-panel');
+        steps.forEach(function (step)
+        {
+          step.addEventListener('click', function ()
+          {
+            var target = this.dataset.step;
+            steps.forEach(function (s) { s.classList.remove('is-active'); });
+            panels.forEach(function (p) { p.classList.remove('is-open'); });
+            this.classList.add('is-active');
+            document.getElementById('tl-panel-' + target).classList.add('is-open');
+          });
+        });
+      })();
+      </script>
+    </div>
+
+
+    <!-- ================ BANNER PARALLAX SEPARADOR ================ -->
+    <section class="parallax-banner reveal lg:h-[75vh]" aria-label="Estadísticas de la red">
+      <img 
+        id="parallax-img"
+        class="parallax-banner__bg"
+        src="src/images/banner/DSC_0003.jpg" 
+        alt="Innovación en UTU"
+        loading="lazy"
+      />
+      <div class="parallax-banner__overlay"></div>
+      
+      <div class="parallax-banner__content">
+        <div class="parallax-banner__stat">
+          <div class="parallax-banner__stat-item">
+            <p class="parallax-banner__stat-number">24</p>
+            <p class="parallax-banner__stat-label">Nodos activos</p>
+          </div>
+          <div class="parallax-banner__stat-item">
+            <p class="parallax-banner__stat-number">19</p>
+            <p class="parallax-banner__stat-label">Departamentos</p>
+          </div>
+          <div class="parallax-banner__stat-item">
+            <p class="parallax-banner__stat-number">45+</p>
+            <p class="parallax-banner__stat-label">Capacitaciones</p>
+          </div>
+        </div>
+        <p class="parallax-banner__text">
+          Una red nacional que conecta formación técnica, sector productivo y comunidad 
+          para construir soluciones de impacto territorial.
+        </p>
+      </div>
+    </section>
+
+
+
+    <!-- ================ CONTENEDOR NOTICIAS + CIFRAS ================ -->
+    <div class="w-full container mx-auto max-w-[1350px] bg-white p-2 md:p-5 2xl:p-3 rounded-lg">
+
+      <!-- ================ NOTICIAS ================ -->
+      <section id="noticias" class="p-10 -mx-2 md:-mx-5 2xl:-mx-3 md:px-8 rounded-t-lg">
+        <div class="container mx-auto">
+
+          <div class="section-header reveal">
+            <span class="section-header__eyebrow">Actualidad</span>
+            <h2 class="section-header__title">Novedades de la Unidad de innovación</h2>
+            <p class="section-header__desc">
+              Seguí las últimas noticias sobre proyectos, capacitaciones e iniciativas 
+              de innovación en toda la red UTU.
+            </p>
+          </div>
+
+          <!-- Noticias destacadas -->
+          <div class="news-grid news-grid--featured mb-6 reveal">
+
+            <article class="news-card-v2 news-card-v2--featured">
+              <div class="news-card-v2__image aspect-video lg:aspect-[21/10]">
+                <img src="https://www.utu.edu.uy/wp-content/uploads/2025/12/DSC08130-1024x683.jpg" alt="Nodos de Innovación">
+                <span class="news-card-v2__tag tag-nodos">Nodos</span>
+              </div>
+              <div class="news-card-v2__body">
+                <h3 class="news-card-v2__title">La Escuela Agraria de Trinidad ya forma parte de los 24 NODOS de Innovación</h3>
+                <p class="news-card-v2__excerpt">Como parte de la inauguración en cada departamento, la Escuela Agraria Trinidad presentó a la comunidad educativa su Nodo de Innovación, sumándose a la red nacional.</p>
+              </div>
+            </article>
+
+            <article class="news-card-v2">
+              <div class="news-card-v2__image aspect-video">
+                <img src="https://www.utu.edu.uy/wp-content/uploads/2026/02/pexels-ivan-s-8127565-edited-scaled.jpg" alt="Nuevas carreras">
+                <span class="news-card-v2__tag tag-carreras">Carreras</span>
+              </div>
+              <div class="news-card-v2__body">
+                <h3 class="news-card-v2__title">Tecnología, inclusión y futuro: nuevas carreras terciarias de UTU</h3>
+                <p class="news-card-v2__excerpt">UTU, junto al MIDES y CENATT, abre inscripciones a nuevas carreras terciarias en Tecnología Asistiva.</p>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Grid secundario -->
+          <div class="news-grid news-grid--secondary reveal">
+
+            <article class="news-card-v2">
+              <div class="news-card-v2__image aspect-video">
+                <img src="https://www.utu.edu.uy/wp-content/uploads/2025/09/pexels-jakubzerdzicki-20552667-1024x683.jpg" alt="Impresión digital">
+                <span class="news-card-v2__tag tag-capac">Capacitación</span>
+              </div>
+              <div class="news-card-v2__body">
+                <h3 class="news-card-v2__title">Jornada de capacitación en tecnologías de impresión digital</h3>
+                <p class="news-card-v2__excerpt">Tres jornadas de actualización docente en manejo de impresoras 3D en la Escuela Técnica de Artigas.</p>
+              </div>
+            </article>
+
+            <article class="news-card-v2">
+              <div class="news-card-v2__image aspect-video bg-gradient-to-br from-sky-50 to-blue-100 flex items-center justify-center">
+                <span class="material-symbols-outlined text-5xl text-blue-300">verified</span>
+              </div>
+              <div class="news-card-v2__body">
+                <span class="news-card-v2__tag tag-iso relative -top-10 -mb-6">ISO 56001</span>
+                <h3 class="news-card-v2__title">UTU avanza en la certificación de su sistema de gestión de la innovación</h3>
+                <p class="news-card-v2__excerpt">La Unidad de innovación trabaja en la implementación de la norma ISO 56001.</p>
+              </div>
+            </article>
+
+            <article class="news-card-v2">
+              <div class="news-card-v2__image aspect-video bg-gradient-to-br from-pink-50 to-rose-100 flex items-center justify-center">
+                <span class="material-symbols-outlined text-5xl text-pink-300">diversity_3</span>
+              </div>
+              <div class="news-card-v2__body">
+                <span class="news-card-v2__tag tag-social relative -top-10 -mb-6">Innovación Social</span>
+                <h3 class="news-card-v2__title">Proyectos de innovación social impactan en comunidades de todo el país</h3>
+                <p class="news-card-v2__excerpt">Estudiantes y docentes desarrollaron soluciones tecnológicas aplicadas.</p>
+              </div>
+            </article>
+
+            <article class="news-card-v2">
+              <div class="news-card-v2__image aspect-video bg-gradient-to-br from-amber-50 to-yellow-100 flex items-center justify-center">
+                <span class="material-symbols-outlined text-5xl text-amber-300">domain</span>
+              </div>
+              <div class="news-card-v2__body">
+                <span class="news-card-v2__tag tag-parques relative -top-10 -mb-6">Parques Tecnológicos</span>
+                <h3 class="news-card-v2__title">Primer parque tecnológico UTU consolida su vínculo con el sector privado</h3>
+                <p class="news-card-v2__excerpt">El espacio ya aloja a tres empresas tecnológicas.</p>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- CTA ver todas -->
+          <div class="text-center mt-10 reveal">
+            <a href="#" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-[var(--uitt-primary)] hover:bg-[var(--uitt-primary-dark)] transition-colors rounded-lg">
+              Ver todas las noticias
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- CIFRAS --> <!-- 
+      <section class="mx-auto border bg-anep_black py-8 md:p-10 mt-12 rounded-xl relative overflow-hidden reveal">
+
+        <canvas class="kpi-tech-canvas absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
+
+        <div class="relative z-10 px-4 md:px-8">
+          <div class="flex items-end justify-between gap-6 flex-wrap mb-8">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-white/70">Unidad de innovación · Indicadores 2026</span>
+              <h3 class="text-white text-2xl md:text-3xl font-black mt-2">Seguimiento y avance</h3>
+            </div>
+            <p class="text-white/60 text-sm max-w-sm">Métricas de impacto de la red de innovación UTU actualizadas al corriente año.</p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="kpi-wrap border border-white/20 bg-white/5 p-5 rounded-lg">
+              <p class="text-white/70 text-[10px] uppercase font-bold tracking-widest">Nodos activos</p>
+              <p class="text-white text-2xl md:text-3xl font-black mt-2">
+                <span class="kpi" data-to="24">0</span>
+              </p>
+              <p class="text-white/60 text-xs mt-1">Centros conectados</p>
+            </div>
+            <div class="kpi-wrap border border-white/20 bg-white/5 p-5 rounded-lg">
+              <p class="text-white/70 text-[10px] uppercase font-bold tracking-widest">Proyectos</p>
+              <p class="text-white text-2xl md:text-3xl font-black mt-2">
+                <span class="kpi" data-to="18">0</span>
+              </p>
+              <p class="text-white/60 text-xs mt-1">Ejecución / incubación</p>
+            </div>
+            <div class="kpi-wrap border border-white/20 bg-white/5 p-5 rounded-lg">
+              <p class="text-white/70 text-[10px] uppercase font-bold tracking-widest">Capacitaciones</p>
+              <p class="text-white text-2xl md:text-3xl font-black mt-2">
+                <span class="kpi" data-to="45">0</span>
+              </p>
+              <p class="text-white/60 text-xs mt-1">Talleres y jornadas</p>
+            </div>
+            <div class="kpi-wrap border border-white/20 bg-white/5 p-5 rounded-lg">
+              <p class="text-white/70 text-[10px] uppercase font-bold tracking-widest">Registros</p>
+              <p class="text-white text-2xl md:text-3xl font-black mt-2">
+                <span class="kpi" data-to="28">0</span>
+              </p>
+              <p class="text-white/60 text-xs mt-1">Activos de conocimiento</p>
+            </div>
+          </div>
+        </div>
+      </section>
+  -->
+
+    </div>
+
+  </main>
+
+  <!-- ================ FOOTER ================ -->
+  <footer id="contacto" class="w-full container mx-auto mt-0 max-w-[1350px] bg-anep_black md:mt-12 p-10 2xl:rounded-lg mb-0 2xl:my-2 2xl:mx-auto 2xl:mt-12">
+    <div class="w-full grid grid-cols-1 gap-y-10 md:gap-y-0 md:grid-cols-2 gap-x-16">
+      <div class="flex flex-col gap-y-10 pr-[5%]">
+        <img class="max-w-96" src="src/images/logo/Logo ANEP-UTU blanco y plata vertical.png" alt="">
+        <p class="font-montserrat text-white text-xs leading-5">La Unidad de innovación articula el conocimiento técnico de UTU con las necesidades reales del sector productivo y la sociedad. A través de 24 nodos en los 19 departamentos del Uruguay, conectamos docentes, estudiantes y comunidades con empresas, organismos y desafíos del territorio.</p>
+        <ul class="gap-x-3 flex-row md:mt-0 flex brightness-50 md:brightness-100">
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22 22 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202z"></path></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M4.983 2.821a2.188 2.188 0 1 0 0 4.376 2.188 2.188 0 1 0 0-4.376M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66zm-6.142 0H6.87v12.139H3.095z"></path></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248m0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008M16.806 6.129a1.078 1.078 0 1 0 0 2.156 1.078 1.078 0 1 0 0-2.156"></path><path d="M20.533 6.111A4.6 4.6 0 0 0 17.9 3.479a6.6 6.6 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.6 6.6 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.6 6.6 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71s0 2.753.056 3.71c.015.748.156 1.486.419 2.187a4.6 4.6 0 0 0 2.634 2.632 6.6 6.6 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.6 6.6 0 0 0 2.186-.419 4.61 4.61 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.6 6.6 0 0 0-.421-2.217m-1.218 9.532a5 5 0 0 1-.311 1.688 2.99 2.99 0 0 1-1.712 1.711 5 5 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a5 5 0 0 1-1.669-.311 2.99 2.99 0 0 1-1.719-1.711 5.1 5.1 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654s0-2.686.053-3.655a5 5 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5 5 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a5 5 0 0 1 1.67.311 3 3 0 0 1 1.712 1.712 5.1 5.1 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655s0 2.698-.043 3.654z"></path></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M21.593 7.203a2.5 2.5 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.52 2.52 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831M9.996 15.005l.005-6 5.207 3.005z"></path></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M13.68 10.62 20.24 3h-1.55L13 9.62 8.45 3H3.19l6.88 10.01L3.19 21h1.55l6.01-6.99 4.8 6.99h5.24l-7.13-10.38Zm-2.13 2.47-.7-1-5.54-7.93H7.7l4.47 6.4.7 1 5.82 8.32H16.3z"></path></svg></li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-y-10 md:gap-y-0 gap-x-6 md:gap-x-16">
+        <div>
+          <h3 class="text-lg font-semibold uppercase tracking-widest mb-4 text-white font-montserrat">La Unidad de innovación</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><a href="quienes-somos.html" class="hover:text-[#f09819] transition-colors">Nosotros</a></li>
+            <li><a href="cobertura.html" class="hover:text-[#f09819] transition-colors">Cobertura territorial</a></li>
+            <li><a href="procesoInnovacion.html" class="hover:text-[#f09819] transition-colors">Formación</a></li>
+            <li><a href="procesoInnovacion.html#capacitacion" class="hover:text-[#f09819] transition-colors">Capacitaciones</a></li>
+          </ul>
+          <h3 class="font-semibold uppercase tracking-widest mb-4 text-white font-montserrat mt-8 text-xs">Socios institucionales</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><a href="https://www.utu.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">UTU — Universidad del Trabajo</a></li>
+            <li><a href="https://www.anep.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">ANEP</a></li>
+            <li>CIU — Cámara de Industrias del Uruguay</li>
+            <li>INACOOP — Instituto Nacional del Cooperativismo</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold uppercase tracking-widest mb-4 text-white font-montserrat">Contacto</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><p><span class="font-bold">San Salvador 1674</span>, Montevideo, Uruguay</p></li>
+            <li><a href="https://www.utu.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">www.utu.edu.uy</a></li>
+          </ul>
+          <h3 class="font-semibold uppercase tracking-widest mb-4 text-white font-montserrat mt-8 text-xs">Informes</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><p>(+598) 2410 7971</p></li>
+            <li><a href="mailto:info@utu.edu.uy" class="hover:text-[#f8e71d] transition-colors">info@utu.edu.uy</a></li>
+          </ul>
+          <h3 class="font-semibold uppercase tracking-widest mb-4 text-white font-montserrat mt-8 text-xs">Información de cursos</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><a href="https://www.utu.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">Estudia en UTU</a></li>
+            <li><p>(+598) 0800 8155</p></li>
+            <li><p>(+598) 2410 7972</p></li>
+            <li><a href="mailto:cursos@utu.edu.uy" class="hover:text-[#f8e71d] transition-colors">cursos@utu.edu.uy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="w-full my-8 border-white/10">
+
+    <div class="w-full flex flex-col md:flex-row justify-between items-center text-xs text-white/80">
+      <p>© 2026 Universidad del Trabajo del Uruguay (UTU) — Unidad de Innovación y Transferencia Tecnológica. Todos los derechos reservados.</p>
+      <div class="flex gap-4 mt-3 md:mt-0">
+        <a href="#" class="hover:text-[#f09819] transition-colors">Accesibilidad</a>
+        <a href="#" class="hover:text-[#f09819] transition-colors">Política de privacidad</a>
+        <a href="#" class="hover:text-[#f09819] transition-colors">Mapa del sitio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== SCROLL REVEAL ===== */
+    (function initReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+
+
+    /* ===== KPI COUNTER ANIMADO ===== */
+    (function initKPI() {
+      const kpiObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('visible');
+
+          entry.target.querySelectorAll('.kpi').forEach(el => {
+            const target = parseInt(el.dataset.to, 10);
+            const duration = 1200;
+            const start = performance.now();
+
+            function tick(now) {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.floor(eased * target);
+              if (progress < 1) requestAnimationFrame(tick);
+              else el.textContent = target;
+            }
+            requestAnimationFrame(tick);
+          });
+
+          kpiObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll('.kpi-wrap').forEach(el => kpiObserver.observe(el));
+    })();
+
+
+    /* ===== PARALLAX EN BANNER ===== */
+    (function initParallax() {
+      const parallaxImg = document.getElementById('parallax-img');
+      if (!parallaxImg) return;
+
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const rect = parallaxImg.parentElement.getBoundingClientRect();
+            const scrolled = -rect.top;
+            const parallaxAmount = scrolled * 0.25;
+            parallaxImg.style.transform = `translateY(${parallaxAmount}px)`;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+  </script>
+
+  <script src="src/scripts/menuScroll.js"></script>
+  <script src="src/scripts/particlesMenu.js"></script>
+  <script src="src/scripts/particlesCifras.js" defer></script>
+  <script src="src/scripts/main.js" defer></script>
+  <script src="src/scripts/scrollEfect.js"></script>
+
+
+  <!-- ===== FLOATING CTAs ===== -->
+  <div id="floating-ctas" class="fixed bottom-5 right-4 md:right-6 z-50 flex flex-col gap-3 items-end">
+    <button id="fab-cta-dismiss" class="fab-cta-close" aria-label="Cerrar accesos rápidos">✕</button>
+    <a href="cobertura.html" class="fab-cta fab-cta--map">
+      <span class="fab-cta__short">Territorio</span>
+      <span class="fab-cta__text">
+        <span class="fab-cta__label">Conocé nuestra red de cobertura</span>
+        <span class="fab-cta__sub">Nodos · CATI · Parques Científico-Tecnológicos</span>
+      </span>
+    </a>
+    <a href="procesoInnovacion.html#capacitacion" class="fab-cta fab-cta--courses">
+      <span class="fab-cta__short">Formación</span>
+      <span class="fab-cta__text">
+        <span class="fab-cta__label">Explorá nuestra oferta de formación</span>
+        <span class="fab-cta__sub">Cursos · Formación continua · Capacitaciones</span>
+      </span>
+    </a>
+    <button id="faq-trigger-btn" class="faq-trigger" aria-label="Ayuda y consultas frecuentes">
+      <span class="faq-trigger__icon material-symbols-outlined" style="font-variation-settings:'FILL' 1">smart_toy</span>
+      Ayuda y consultas
+    </button>
+  </div>
+
+  <!-- ===== FAQ PANEL ===== -->
+  <div id="faq-backdrop" aria-hidden="true"></div>
+  <div id="faq-panel" role="dialog" aria-modal="true" aria-labelledby="faq-panel-title">
+    <div class="faq-panel__header">
+      <span class="faq-panel__title">
+        <span class="faq-panel__title-icon material-symbols-outlined" style="font-variation-settings:'FILL' 1">smart_toy</span>
+        <span id="faq-panel-title">Consultas frecuentes</span>
+      </span>
+      <button id="faq-panel-close" class="faq-panel__close" aria-label="Cerrar panel">✕</button>
+    </div>
+    <div class="faq-panel__body">
+      <p class="faq-panel__intro">Seleccioná una pregunta para ver la respuesta. Si tenés dudas adicionales podés escribirnos directo.</p>
+      <div id="faq-list"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('fab-cta-dismiss').addEventListener('click', function() {
+      document.getElementById('floating-ctas').style.display = 'none';
+    });
+
+    (function() {
+      var faqs = [
+        {
+          q: '¿Qué es un Nodo de Innovación?',
+          a: 'Un Nodo de Innovación es un espacio físico dentro de un centro UTU que actúa como intermediario territorial entre las necesidades del sector productivo y la capacidad técnica de UTU. Cuenta con sala colaborativa en red y auditorio de 130 butacas. Hay 24 nodos distribuidos en los 19 departamentos de Uruguay, con cuatro tipologías: Tecnológica, Educativa, Social y Empresarial.'
+        },
+        {
+          q: '¿Qué es el CATI?',
+          a: 'El CATI (Centro de Apoyo a la Tecnología y la Innovación) es un servicio de la OMPI (Organización Mundial de la Propiedad Intelectual) que funciona dentro de la UITT. Brinda orientación sobre propiedad intelectual, patentes y protección de innovaciones. Es una etapa clave del proceso de innovación donde los proyectos son categorizados y jerarquizados antes de ser orientados hacia su desarrollo.'
+        },
+        {
+          q: '¿Qué es un Parque Científico-Tecnológico?',
+          a: 'Los Parques Científico-Tecnológicos son ecosistemas de innovación que nuclean empresas, centros de investigación e instituciones educativas en un espacio común. La UITT articula con estos parques para facilitar la transferencia tecnológica y la vinculación entre los proyectos generados en UTU y el sector productivo.'
+        },
+        {
+          q: '¿Dónde puedo ver el banco de problemas?',
+          a: 'El banco de problemas es una herramienta geolocalizadora gestionada por los Nodos de Innovación. Reúne necesidades reales del sector productivo, industrial y de la sociedad civil. Para acceder o consultar problemas disponibles en tu región, podés contactar al nodo UTU más cercano o escribirnos a través de este formulario de consulta.'
+        },
+        {
+          q: '¿Cómo puedo postular un problema que quiero abordar?',
+          a: 'El proceso comienza con la identificación del problema en el nodo territorial. Luego se categoriza y jerarquiza (con apoyo del CATI si hay propiedad intelectual involucrada), se orienta el proyecto, se realiza validación y prototipado, y se formula el proyecto. Si tiene potencial empresarial, se conecta con el CIU y con INACOOP o MIDES para incubación. Para iniciar, escribinos con una descripción básica de tu necesidad.'
+        },
+        {
+          q: 'Soy una empresa, ¿cómo me contacto?',
+          a: 'Las empresas pueden acercarse a través del nodo UTU más cercano a su ubicación o contactar directamente a la UITT. El proceso involucra la presentación de la necesidad o problema, que luego se articula con proyectos de estudiantes y docentes UTU. También podés vincularte a través de la Cámara de Industrias del Uruguay (CIU), que es socia institucional del proceso.'
+        },
+        {
+          q: '¿Cómo puedo ver los cursos y capacitaciones disponibles?',
+          a: 'La oferta de formación continua y capacitaciones de la UITT está disponible en la sección Formación del sitio. Incluye cursos técnicos, formación continua para docentes y capacitaciones para el sector productivo. Para más información sobre fechas e inscripciones podés escribirnos directamente.'
+        }
+      ];
+
+      var list = document.getElementById('faq-list');
+      var panel = document.getElementById('faq-panel');
+      var backdrop = document.getElementById('faq-backdrop');
+      var openBtn = document.getElementById('faq-trigger-btn');
+      var headerTrigger = document.getElementById('faq-header-trigger');
+      var closeBtn = document.getElementById('faq-panel-close');
+
+      faqs.forEach(function(item, i) {
+        var id = 'faq-' + i;
+        var btn = document.createElement('button');
+        btn.className = 'faq-question-btn';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-controls', id);
+        btn.innerHTML =
+          '<span class="material-symbols-outlined" style="font-size:0.9rem;color:#1997f0;flex-shrink:0">help_outline</span>' +
+          '<span>' + item.q + '</span>' +
+          '<span class="faq-question-btn__arrow material-symbols-outlined">expand_more</span>';
+
+        var answer = document.createElement('div');
+        answer.className = 'faq-answer';
+        answer.id = id;
+        var subject = encodeURIComponent('Consulta UITT: ' + item.q);
+        answer.innerHTML =
+          '<p class="faq-answer-text">' + item.a + '</p>' +
+          '<a href="mailto:info@utu.edu.uy?subject=' + subject + '" class="faq-mailto-btn">' +
+          '<span class="material-symbols-outlined" style="font-size:0.85rem">mail</span>' +
+          '¿Tenés más dudas? Escribinos' +
+          '</a>';
+
+        btn.addEventListener('click', function() {
+          var isOpen = answer.classList.contains('faq-visible');
+          document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.remove('faq-visible'); });
+          document.querySelectorAll('.faq-question-btn').forEach(function(b) { b.classList.remove('faq-active'); b.setAttribute('aria-expanded', 'false'); });
+          if (!isOpen) {
+            answer.classList.add('faq-visible');
+            btn.classList.add('faq-active');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+
+        list.appendChild(btn);
+        list.appendChild(answer);
+      });
+
+      function openPanel() {
+        panel.classList.add('faq-open');
+        backdrop.classList.add('faq-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closePanel() {
+        panel.classList.remove('faq-open');
+        backdrop.classList.remove('faq-open');
+        document.body.style.overflow = '';
+      }
+
+      openBtn.addEventListener('click', openPanel);
+      if (headerTrigger) headerTrigger.addEventListener('click', openPanel);
+      closeBtn.addEventListener('click', closePanel);
+      backdrop.addEventListener('click', closePanel);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePanel(); });
+    })();
+  </script>
+</body>
+
+</html>

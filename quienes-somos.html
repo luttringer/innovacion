@@ -1,0 +1,292 @@
+﻿<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quiénes somos — Unidad de innovación | UTU</title>
+  <link rel="shortcut icon" href="src/images/icons/ico logo UTU.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/styles.css">
+</head>
+
+<body class="bg-neutral-50 relative">
+
+  <!-- ===== HEADER ===== -->
+  <header class="cont_menu_navigation sticky top-0 z-[100] w-full h-[76px] md:h-52 bg-anep_cyan_three flex flex-col overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]">
+    <canvas class="hidden md:block md:absolute top-0 left-0 opacity-[0.15] w-full" id="particleCanvas"></canvas>
+
+    <div id="panelNav" class="w-full h-full md:h-[65%] z-10 relative">
+      <div class="max-w-[1350px] mx-auto h-full flex justify-between items-center px-4 md:px-8 2xl:px-6">
+        <div class="nav-logo-bar flex items-center h-full gap-4">
+          <a href="index.html" class="menuLink cursor-pointer z-10 shrink-0">
+            <img class="h-[25px] md:h-10 w-auto object-contain" src="src/images/logo/UITT.png" alt="Logo Unidad de innovación">
+          </a>
+          <nav class="compact-nav hidden items-center gap-5 ml-6 font-montserrat text-[.78rem] uppercase text-white">
+            <a href="index.html" class="hover:opacity-75 font-medium transition-opacity">Inicio</a>
+            <a href="quienes-somos.html" class="font-semibold underline underline-offset-4 transition-opacity">Nosotros</a>
+            <a href="cobertura.html" class="hover:opacity-75 font-medium transition-opacity">Territorio</a>
+            <a href="procesoInnovacion.html" class="hover:opacity-75 font-medium transition-opacity">Formación</a>
+          </nav>
+        </div>
+        <button id="menuSwap" class="relative w-10 h-10 md:hidden grid place-items-center" aria-label="Alternar menú" aria-pressed="false">
+          <svg class="icon-a absolute inset-0 m-auto w-6 h-6 text-white transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z"></path></svg>
+          <svg class="icon-b absolute inset-0 m-auto w-6 h-6 text-white opacity-0 scale-95 transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 11h12v2H8zM12 18h8v-2h-8zM4 6h16v2H4z"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="panelPlus" class="w-full h-0 md:h-[35%] bg-[#08c]/90 flex z-10 relative">
+      <div class="max-w-[1350px] mx-auto w-full h-full flex items-center justify-between px-4 md:px-8 2xl:px-6">
+        <nav id="menu-panel" class="flex-col translate-x-[120%] md:translate-x-0 fixed top-[76px] h-[calc(100vh-76px)] bg-anep_cyan_two md:bg-transparent md:relative md:top-0 left-0 w-full z-50 text-white md:h-full md:w-auto flex transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]">
+          <ul class="h-full flex flex-col justify-center md:flex-row md:items-center text-white gap-y-6 md:gap-y-0 gap-x-6 font-montserrat text-[.78rem] uppercase pl-10 md:pl-0">
+            <li><a href="index.html" class="hover:opacity-75 transition-opacity font-medium">Inicio</a></li>
+            <li><a href="quienes-somos.html" class="hover:opacity-75 transition-opacity font-semibold underline underline-offset-4">Nosotros</a></li>
+            <li><a href="cobertura.html" class="hover:opacity-75 transition-opacity font-medium">Territorio</a></li>
+            <li><a href="procesoInnovacion.html" class="hover:opacity-75 transition-opacity font-medium">Formación</a></li>
+          </ul>
+        </nav>
+        <div class="hidden md:block ml-auto shrink-0">
+          <button id="faq-trigger-btn" class="faq-trigger" aria-label="Ayuda y consultas frecuentes">
+            <span class="faq-trigger__icon material-symbols-outlined" style="font-variation-settings:'FILL' 1">smart_toy</span>
+            Ayuda y consultas
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full container mx-auto xl:max-w-[1100px] 2xl:max-w-[1350px] bg-white mt-[52px] md:mt-5 p-4 md:p-8 rounded-lg">
+
+    <!-- breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-4 pb-3 border-b border-gray-100">
+      <ol class="flex items-center gap-1.5 text-[11px] font-montserrat text-gray-400 font-medium">
+        <li><a href="index.html" class="hover:text-anep_cyan transition-colors">Unidad de innovación</a></li>
+        <li><span class="mx-0.5">›</span></li>
+        <li class="text-anep_cyan font-semibold">Quiénes somos</li>
+      </ol>
+    </nav>
+
+    <!-- presentación -->
+    <section id="presentacion" class="mb-10 scroll-mt-24">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center reveal reveal-delay-1">
+        <div>
+          <p class="text-sm font-montserrat text-anep_black leading-relaxed mb-4">
+            La <strong>Unidad de Innovación y Transferencia Tecnológica</strong> es el organismo de UTU que articula el conocimiento técnico y académico de la institución con las necesidades reales del sector productivo, industrial y la sociedad civil uruguaya.
+          </p>
+          <p class="text-sm font-montserrat text-anep_black leading-relaxed mb-4">
+            Su misión es construir puentes entre el saber hacer de docentes y estudiantes —que generan cerca de 5.000 proyectos de fin de curso anuales— y los desafíos concretos del territorio: empresas, cooperativas, organismos públicos y comunidades que presentan problemas reales a resolver.
+          </p>
+          <p class="text-sm font-montserrat text-anep_black leading-relaxed">
+            Con presencia en los 19 departamentos del país a través de 24 nodos de innovación, la Unidad de innovación opera como red territorial de intermediación, conectando conocimiento con necesidad, y encauzando ese vínculo en un proceso estructurado de innovación con socios institucionales de primer nivel.
+          </p>
+        </div>
+
+        <div class="relative rounded-xl overflow-hidden" style="aspect-ratio:16/9;">
+          <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/n15yaTi0hD0?si=yINbHAx3CwuZMbDL&start=3139" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- referentes -->
+    <section id="referentes" class="mb-10 scroll-mt-24 bg-[#f0f8ff] p-4 md:p-8 rounded-xl">
+      <div class="flex items-center mb-6 reveal">
+        <h2 class="pr-8 font-montserrat text-[13px] md:text-[15px] uppercase font-bold text-anep_cyan tracking-wider shrink-0">Referentes</h2>
+        <hr class="w-full border-0 border-t border-t-anep_cyan">
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal reveal-delay-1">
+
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col gap-4">
+          <div>
+            <p class="text-base font-bold font-montserrat text-anep_black leading-snug">Wilson Netto</p>
+            <p class="text-[11px] font-montserrat uppercase tracking-widest text-anep_cyan mt-1">Cargo a definir</p>
+          </div>
+          <div class="flex flex-col gap-2 text-xs font-montserrat text-gray-400">
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">phone</span>
+              A definir
+            </span>
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">mail</span>
+              A definir
+            </span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col gap-4">
+          <div>
+            <p class="text-base font-bold font-montserrat text-anep_black leading-snug">Fernando Amestoy</p>
+            <p class="text-[11px] font-montserrat uppercase tracking-widest text-anep_cyan mt-1">Cargo a definir</p>
+          </div>
+          <div class="flex flex-col gap-2 text-xs font-montserrat text-gray-400">
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">phone</span>
+              A definir
+            </span>
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">mail</span>
+              A definir
+            </span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col gap-4">
+          <div>
+            <p class="text-base font-bold font-montserrat text-anep_black leading-snug">Lorena Mendilazo</p>
+            <p class="text-[11px] font-montserrat uppercase tracking-widest text-anep_cyan mt-1">Cargo a definir</p>
+          </div>
+          <div class="flex flex-col gap-2 text-xs font-montserrat text-gray-400">
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">phone</span>
+              A definir
+            </span>
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">mail</span>
+              A definir
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+  </main>
+
+  <!-- ================ FOOTER ================ -->
+  <footer id="contacto" class="w-full container mx-auto mt-0 max-w-[1350px] bg-anep_black md:mt-12 p-10 2xl:rounded-lg mb-0 2xl:my-2 2xl:mx-auto 2xl:mt-12">
+    <div class="w-full grid grid-cols-1 gap-y-10 md:gap-y-0 md:grid-cols-2 gap-x-16">
+      <div class="flex flex-col gap-y-10 pr-[5%]">
+        <img class="max-w-96" src="src/images/logo/Logo ANEP-UTU blanco y plata vertical.png" alt="">
+        <p class="font-montserrat text-white text-xs leading-5">La Unidad de innovación articula el conocimiento técnico de UTU con las necesidades reales del sector productivo y la sociedad. A través de 24 nodos en los 19 departamentos del Uruguay, conectamos docentes, estudiantes y comunidades con empresas, organismos y desafíos del territorio.</p>
+        <ul class="gap-x-3 flex-row md:mt-0 flex brightness-50 md:brightness-100">
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 24 24"><path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22 22 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202z"/></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 24 24"><path d="M4.983 2.821a2.188 2.188 0 1 0 0 4.376 2.188 2.188 0 1 0 0-4.376M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66zm-6.142 0H6.87v12.139H3.095z"/></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 24 24"><path d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248m0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008M16.806 6.129a1.078 1.078 0 1 0 0 2.156 1.078 1.078 0 1 0 0-2.156"/><path d="M20.533 6.111A4.6 4.6 0 0 0 17.9 3.479a6.6 6.6 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.6 6.6 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.6 6.6 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71s0 2.753.056 3.71c.015.748.156 1.486.419 2.187a4.6 4.6 0 0 0 2.634 2.632 6.6 6.6 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.6 6.6 0 0 0 2.186-.419 4.61 4.61 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.6 6.6 0 0 0-.421-2.217m-1.218 9.532a5 5 0 0 1-.311 1.688 2.99 2.99 0 0 1-1.712 1.711 5 5 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a5 5 0 0 1-1.669-.311 2.99 2.99 0 0 1-1.719-1.711 5.1 5.1 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654s0-2.686.053-3.655a5 5 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5 5 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a5 5 0 0 1 1.67.311 3 3 0 0 1 1.712 1.712 5.1 5.1 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655s0 2.698-.043 3.654z"/></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 24 24"><path d="M21.593 7.203a2.5 2.5 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.52 2.52 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831M9.996 15.005l.005-6 5.207 3.005z"/></svg></li>
+          <li><svg class="h-6 aspect-square" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 24 24"><path d="M13.68 10.62 20.24 3h-1.55L13 9.62 8.45 3H3.19l6.88 10.01L3.19 21h1.55l6.01-6.99 4.8 6.99h5.24l-7.13-10.38Zm-2.13 2.47-.7-1-5.54-7.93H7.7l4.47 6.4.7 1 5.82 8.32H16.3z"/></svg></li>
+        </ul>
+      </div>
+      <div class="flex flex-col md:flex-row gap-y-10 md:gap-y-0 gap-x-6 md:gap-x-16">
+        <div>
+          <h3 class="text-lg font-semibold uppercase tracking-widest mb-4 text-white font-montserrat">La Unidad de innovación</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><a href="quienes-somos.html" class="hover:text-[#f09819] transition-colors">Quiénes somos</a></li>
+            <li><a href="mapa.html" class="hover:text-[#f09819] transition-colors">Nodos de innovación</a></li>
+            <li><a href="procesoInnovacion.html" class="hover:text-[#f09819] transition-colors">Formación</a></li>
+            <li><a href="procesoInnovacion.html#capacitacion" class="hover:text-[#f09819] transition-colors">Capacitaciones</a></li>
+          </ul>
+          <h3 class="font-semibold uppercase tracking-widest mb-4 text-white font-montserrat mt-8 text-xs">Socios institucionales</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><a href="https://www.utu.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">UTU — Universidad del Trabajo</a></li>
+            <li><a href="https://www.anep.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">ANEP</a></li>
+            <li>CIU — Cámara de Industrias del Uruguay</li>
+            <li>INACOOP — Instituto Nacional del Cooperativismo</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold uppercase tracking-widest mb-4 text-white font-montserrat">Contacto</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><span class="font-bold">San Salvador 1674</span>, Montevideo, Uruguay</li>
+            <li><a href="https://www.utu.edu.uy" target="_blank" class="hover:text-[#f09819] transition-colors">www.utu.edu.uy</a></li>
+          </ul>
+          <h3 class="font-semibold uppercase tracking-widest mb-4 text-white font-montserrat mt-8 text-xs">Informes</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li>(+598) 2410 7971</li>
+            <li><a href="mailto:info@utu.edu.uy" class="hover:text-[#f8e71d] transition-colors">info@utu.edu.uy</a></li>
+          </ul>
+          <h3 class="font-semibold uppercase tracking-widest mb-4 text-white font-montserrat mt-8 text-xs">Información de cursos</h3>
+          <ul class="space-y-2 text-xs leading-relaxed font-montserrat text-anep_gray">
+            <li><a href="https://www.utu.edu.uy/estudia/" target="_blank" class="hover:text-[#f09819] transition-colors">Estudia en UTU</a></li>
+            <li>(+598) 0800 8155</li>
+            <li><a href="mailto:informate@utu.edu.uy" class="hover:text-[#f8e71d] transition-colors">informate@utu.edu.uy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr class="w-full my-8 border-white/10">
+    <div class="w-full flex flex-col md:flex-row justify-between items-center text-xs text-white/80">
+      <p>© 2026 Universidad del Trabajo del Uruguay (UTU) — Unidad de Innovación y Transferencia Tecnológica. Todos los derechos reservados.</p>
+      <div class="flex gap-4 mt-3 md:mt-0">
+        <a href="#" class="hover:text-[#f09819] transition-colors">Accesibilidad</a>
+        <a href="#" class="hover:text-[#f09819] transition-colors">Política de privacidad</a>
+        <a href="#" class="hover:text-[#f09819] transition-colors">Mapa del sitio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="src/scripts/menuScroll.js"></script>
+  <script src="src/scripts/particlesMenu.js"></script>
+  <script src="src/scripts/scrollEfect.js"></script>
+
+  <!-- ===== FAQ PANEL ===== -->
+  <div id="faq-backdrop" aria-hidden="true"></div>
+  <div id="faq-panel" role="dialog" aria-modal="true" aria-labelledby="faq-panel-title">
+    <div class="faq-panel__header">
+      <span class="faq-panel__title">
+        <span class="faq-panel__title-icon material-symbols-outlined" style="font-variation-settings:'FILL' 1">smart_toy</span>
+        <span id="faq-panel-title">Consultas frecuentes</span>
+      </span>
+      <button id="faq-panel-close" class="faq-panel__close" aria-label="Cerrar panel">✕</button>
+    </div>
+    <div class="faq-panel__body">
+      <p class="faq-panel__intro">Seleccioná una pregunta para ver la respuesta. Si tenés dudas adicionales podés escribirnos directo.</p>
+      <div id="faq-list"></div>
+    </div>
+  </div>
+  <script>
+    (function() {
+      var faqs = [
+        { q: '¿Qué es un Nodo de Innovación?', a: 'Un Nodo de Innovación es un espacio físico dentro de un centro UTU que actúa como intermediario territorial entre las necesidades del sector productivo y la capacidad técnica de UTU. Cuenta con sala colaborativa en red y auditorio de 130 butacas. Hay 24 nodos distribuidos en los 19 departamentos de Uruguay, con cuatro tipologías: Tecnológica, Educativa, Social y Empresarial.' },
+        { q: '¿Qué es el CATI?', a: 'El CATI (Centro de Apoyo a la Tecnología y la Innovación) es un servicio de la OMPI (Organización Mundial de la Propiedad Intelectual) que funciona dentro de la UITT. Brinda orientación sobre propiedad intelectual, patentes y protección de innovaciones. Es una etapa clave del proceso de innovación donde los proyectos son categorizados y jerarquizados antes de ser orientados hacia su desarrollo.' },
+        { q: '¿Qué es un Parque Científico-Tecnológico?', a: 'Los Parques Científico-Tecnológicos son ecosistemas de innovación que nuclean empresas, centros de investigación e instituciones educativas en un espacio común. La UITT articula con estos parques para facilitar la transferencia tecnológica y la vinculación entre los proyectos generados en UTU y el sector productivo.' },
+        { q: '¿Dónde puedo ver el banco de problemas?', a: 'El banco de problemas es una herramienta geolocalizadora gestionada por los Nodos de Innovación. Reúne necesidades reales del sector productivo, industrial y de la sociedad civil. Para acceder o consultar problemas disponibles en tu región, podés contactar al nodo UTU más cercano o escribirnos.' },
+        { q: '¿Cómo puedo postular un problema que quiero abordar?', a: 'El proceso comienza con la identificación del problema en el nodo territorial. Luego se categoriza y jerarquiza (con apoyo del CATI si hay propiedad intelectual involucrada), se orienta el proyecto, se realiza validación y prototipado, y se formula el proyecto. Si tiene potencial empresarial, se conecta con el CIU y con INACOOP o MIDES para incubación.' },
+        { q: 'Soy una empresa, ¿cómo me contacto?', a: 'Las empresas pueden acercarse a través del nodo UTU más cercano a su ubicación o contactar directamente a la UITT. El proceso involucra la presentación de la necesidad o problema, que luego se articula con proyectos de estudiantes y docentes UTU. También podés vincularte a través de la Cámara de Industrias del Uruguay (CIU), socia institucional del proceso.' },
+        { q: '¿Cómo puedo ver los cursos y capacitaciones disponibles?', a: 'La oferta de formación continua y capacitaciones de la UITT está disponible en la sección Formación del sitio. Incluye cursos técnicos, formación continua para docentes y capacitaciones para el sector productivo. Para más información sobre fechas e inscripciones podés escribirnos directamente.' }
+      ];
+      var list = document.getElementById('faq-list');
+      var panel = document.getElementById('faq-panel');
+      var backdrop = document.getElementById('faq-backdrop');
+      var openBtn = document.getElementById('faq-trigger-btn');
+      var closeBtn = document.getElementById('faq-panel-close');
+      faqs.forEach(function(item, i) {
+        var id = 'faq-' + i;
+        var btn = document.createElement('button');
+        btn.className = 'faq-question-btn';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-controls', id);
+        btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:0.9rem;color:#1997f0;flex-shrink:0">help_outline</span><span>' + item.q + '</span><span class="faq-question-btn__arrow material-symbols-outlined">expand_more</span>';
+        var answer = document.createElement('div');
+        answer.className = 'faq-answer';
+        answer.id = id;
+        var subject = encodeURIComponent('Consulta UITT: ' + item.q);
+        answer.innerHTML = '<p class="faq-answer-text">' + item.a + '</p><a href="mailto:info@utu.edu.uy?subject=' + subject + '" class="faq-mailto-btn"><span class="material-symbols-outlined" style="font-size:0.85rem">mail</span>¿Tenés más dudas? Escribinos</a>';
+        btn.addEventListener('click', function() {
+          var isOpen = answer.classList.contains('faq-visible');
+          document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.remove('faq-visible'); });
+          document.querySelectorAll('.faq-question-btn').forEach(function(b) { b.classList.remove('faq-active'); b.setAttribute('aria-expanded', 'false'); });
+          if (!isOpen) { answer.classList.add('faq-visible'); btn.classList.add('faq-active'); btn.setAttribute('aria-expanded', 'true'); }
+        });
+        list.appendChild(btn);
+        list.appendChild(answer);
+      });
+      function openPanel() { panel.classList.add('faq-open'); backdrop.classList.add('faq-open'); document.body.style.overflow = 'hidden'; }
+      function closePanel() { panel.classList.remove('faq-open'); backdrop.classList.remove('faq-open'); document.body.style.overflow = ''; }
+      openBtn.addEventListener('click', openPanel);
+      closeBtn.addEventListener('click', closePanel);
+      backdrop.addEventListener('click', closePanel);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePanel(); });
+    })();
+  </script>
+
+</body>
+
+</html>

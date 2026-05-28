@@ -1,0 +1,27 @@
+# Dependencias
+node_modules/
+vendor/
+
+# Build outputs
+dist/
+build/
+.next/
+
+# WordPress core (nunca tocás esto)
+wp-admin/
+wp-includes/
+wp-content/uploads/
+wp-content/cache/
+
+# Assets compilados
+*.min.js
+*.min.css
+
+# Logs y temporales
+*.log
+.DS_Store
+.env
+.env.local
+
+# Git
+.git/
